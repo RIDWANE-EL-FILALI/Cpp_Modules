@@ -1,8 +1,7 @@
 #ifndef CONTACT_H
 #define CONTACT_H
-
-
 #include <string>
+
 
 class Contact {
 	private:
@@ -12,27 +11,16 @@ class Contact {
 		std::string number;
 		std::string secret;
 
-		int containsOnlyAlpha(std::string input);
-		int containsOnlyDigit(std::string input);
+		int containsOnlyAlpha(std::string str);
+		int containsOnlyDigit(std::string str);
 
 	public:
 		Contact(void);
 		~Contact(void);
 		int isEmpty(void);
 		std::string getInfo(std::string info);
-		void setInfo(std::string info, std::string value);
-
-}
-
-		
-
-
-
-
-
-
-
-
-
+		int setInfo(std::string info, std::string value);
+		int displayContactInfo(void);
+};
 
 #endif

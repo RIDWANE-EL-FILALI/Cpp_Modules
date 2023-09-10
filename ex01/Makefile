@@ -1,21 +1,20 @@
-NAME = PhoneBook.a
-CC = c++
-CFLAGS = -WERROR -WALL -WEXTRA -std=c++98
-RM = rm -f
-SRC = Contact.cpp PhoneBook.cpp
+NAME	= PhoneBook
 
-OBJ = ${SRC:.c=.o}
+CC		= c++
+CFLAGS	= -Werror -Wextra -Wall -std=c++98
 
-all : $(NAME)
+SRC		= PhoneBook.cpp main.cpp Contact.cpp
+OBJ		= $(SRC:.cpp=.o)
 
-$(NAME) : $(OBJ) Contact.hpp PhoneBook.hpp
-	ar -rc $(NAME) $(OBJ)
-	@${CC} ${CFLAGS} main.cpp ${NAME} -o PhoneBook
+all: $(NAME)
 
-clean :
-	@${RM} ${OBJ} ${NAME}
+$(NAME): $(OBJ) PhoneBook.hpp Contact.hpp
+	$(CC) $(CFLAGS) $(OBJ) -o $@
 
-fclean : clean
-	@${RM} PhoneBook
+clean:
+	rm -f *.o
 
-re : fclean all
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
