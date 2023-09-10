@@ -6,7 +6,6 @@
 - [Transitioning from C to C++](#transitioning-from-c-to-c)
 - [Understanding Object-Oriented Programming (OOP)](#understanding-object-oriented-programming-oop)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 Welcome to the Introduction to C++ and Transitioning from C GitHub repository! This project aims to provide a helpful resource for those looking to learn C++ and make a smooth transition from C programming. Additionally, it explains the fundamental concepts of Object-Oriented Programming (OOP) in C++.
@@ -51,5 +50,3 @@ Object-Oriented Programming is a fundamental paradigm in C++. It organizes code 
 ## Contributing
 If you'd like to contribute to this project, feel free to submit pull requests or open issues with suggestions, improvements, or additional examples. Your contributions are highly appreciated!
 
-## License
-This project is open-source and available under the [MIT License](LICENSE). You are free to use and modify the content as per the license terms.
