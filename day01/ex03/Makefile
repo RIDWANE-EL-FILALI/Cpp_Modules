@@ -1,8 +1,7 @@
-NAME	= brainzz
+NAME	= hi_this_is_brain
 CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
-
-SRC		= Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
+SRC		= HumanA.cpp HumanB.cpp main.cpp Weapon.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 %.o : %.cpp
@@ -10,7 +9,7 @@ OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) Zombie.hpp
+$(NAME): $(OBJ) Weapon.hpp HumanA.hpp HumanB.hpp
 	@$(CC) $(CFLAGS) $(OBJ) -o $@
 
 clean:

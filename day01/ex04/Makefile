@@ -1,8 +1,7 @@
-NAME	= brainzz
+NAME	= Sed_is_for_losers
 CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
-
-SRC		= Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
+SRC		= main.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 %.o : %.cpp
@@ -10,7 +9,7 @@ OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) Zombie.hpp
+$(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $@
 
 clean:
