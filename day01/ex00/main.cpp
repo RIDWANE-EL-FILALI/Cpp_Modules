@@ -1,12 +1,6 @@
 #include "Zombie.hpp"
-#include <cstdlib>
 void randomChump(std::string name);
 Zombie *newZombie(std::string name);
-
-void fun(void)
-{
-    system("leaks brainzz");
-}
 
 int main()
 {
@@ -16,7 +10,7 @@ int main()
     Zombie *ret;
     ret = newZombie("second");
     ret->announce();
-    delete ret;
     randomChump("third");
+    delete ret;
     return (0);
 }

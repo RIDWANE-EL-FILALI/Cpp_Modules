@@ -1,4 +1,3 @@
-//#include "main.hpp"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -30,16 +29,16 @@ int main(int ac, char **av)
         std::string s1 = av[2];
         std::string s2 = av[3];
         std::string output_filename = filename + ".replace";
-        std::ofstream output_file(output_filename);
-        if (!output_file)
-        {
-            std::cerr << "Unable to open the output file." << std::endl;
-            return (1);
-        }
-        std::ifstream inputFile(filename);
+        std::ifstream inputFile(filename.c_str());
         if (!inputFile)
         {
             std::cerr << "Unable to open the in file." << std::endl;
+            return (1);
+        }
+        std::ofstream output_file(output_filename.c_str());
+        if (!output_file)
+        {
+            std::cerr << "Unable to open the output file." << std::endl;
             return (1);
         }
         std::string line;

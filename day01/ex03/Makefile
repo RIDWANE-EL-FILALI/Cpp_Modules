@@ -1,4 +1,4 @@
-NAME	= hi_this_is_brain
+NAME	= Unnecessary_violence
 CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
 SRC		= HumanA.cpp HumanB.cpp main.cpp Weapon.cpp
