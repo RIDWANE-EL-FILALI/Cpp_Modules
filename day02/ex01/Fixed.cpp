@@ -11,14 +11,18 @@ Fixed::Fixed(void)
 /* constructor with int */
 Fixed::Fixed(int const n)
 {
+    std::cout << "Constructor with int as argument called" << std::endl;
     value = n << fractionBits;
+    //std::cout << value << std::endl;
     return ;
 }
 
 /* constructor with float */
 Fixed::Fixed(float const f)
 {
+    std::cout << "Constructor with float as argument called" << std::endl;
     value = int(roundf(f * (1 << fractionBits)));
+    //std::cout << value << std::endl;
     return ;
 }
 
