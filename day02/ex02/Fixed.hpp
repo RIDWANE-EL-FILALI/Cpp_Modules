@@ -35,6 +35,11 @@ class Fixed {
         Fixed & operator--(void);
         Fixed operator--(int);
 
+        static Fixed & min(Fixed &one, Fixed &two);
+        static Fixed & min(Fixed const &one, Fixed const &two);
+        static Fixed & max(Fixed &one, Fixed &two);
+        static Fixed & max(Fixed const &one, Fixed const &two);
+
         int getRawBits(void) const;
         void setRawBits(int const raw);
         float toFloat(void)const;
