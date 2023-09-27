@@ -21,7 +21,7 @@ class Fixed {
         bool operator>(Fixed const & src);
         bool operator<(Fixed const & src);
         bool operator>=(Fixed const & src);
-        bool operator<=(Fixed const & src);
+        bool operator<=(Fixed const & src) const;
         bool operator==(Fixed const & src);
         bool operator!=(Fixed const & src);
 
@@ -36,9 +36,9 @@ class Fixed {
         Fixed operator--(int);
 
         static Fixed & min(Fixed &one, Fixed &two);
-        static Fixed & min(Fixed const &one, Fixed const &two);
+        static Fixed const & min(Fixed const &one, Fixed const &two);
         static Fixed & max(Fixed &one, Fixed &two);
-        static Fixed & max(Fixed const &one, Fixed const &two);
+        static Fixed const & max(Fixed const &one, Fixed const &two);
 
         int getRawBits(void) const;
         void setRawBits(int const raw);
