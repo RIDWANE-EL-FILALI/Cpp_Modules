@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+#include <bitset>
 
 /* constructer */
 Fixed::Fixed(void)
@@ -13,7 +14,6 @@ Fixed::Fixed(int const n)
 {
     std::cout << "Constructor with int as argument called" << std::endl;
     value = n << fractionBits;
-    //std::cout << value << std::endl;
     return ;
 }
 
@@ -21,8 +21,8 @@ Fixed::Fixed(int const n)
 Fixed::Fixed(float const f)
 {
     std::cout << "Constructor with float as argument called" << std::endl;
-    value = int(roundf(f * (1 << fractionBits)));
-    //std::cout << value << std::endl;
+    std::cout << roundf(f * (1 << fractionBits)) << std::endl;
+
     return ;
 }
 

@@ -15,7 +15,7 @@ Fixed::~Fixed(void)
 
 Fixed::Fixed(Fixed const &src)
 {
-    std::cout << "Copy constructor called called" << std::endl;
+    std::cout << "Copy constructor called" << std::endl;
     *this = src;
     return;
 }
