@@ -17,5 +17,6 @@ int	main(void) {
     alien.attack(scav2);
     robot.takeDamage(20);
     robot.beRepaired(20);
+    std::cout << "Aliens for the win !!!! 👽" << std::endl;
 	return (0);
 }
