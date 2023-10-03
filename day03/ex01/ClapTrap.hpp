@@ -12,7 +12,6 @@ class ClapTrap
         unsigned int hit_points;
         unsigned int energy_points;
         unsigned int attack_damage;
-        
     public:
         ClapTrap(void);
         ClapTrap(std::string name);
