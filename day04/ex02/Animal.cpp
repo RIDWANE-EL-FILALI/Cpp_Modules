@@ -6,12 +6,6 @@ Animal::Animal(void)
     std::cout << "Default constructer for class Animal called" << std::endl;
     return ;
 }
-Animal::Animal(std::string &type)
-{
-    this->type = type;
-    std::cout << "Default constructor with type argument of class animal called" << std::endl;
-    return ;
-}
 
 Animal::~Animal(void)
 {
@@ -31,11 +25,6 @@ Animal &Animal::operator=(Animal &src)
     if (this != &src)
         this->type = src.type;
     return (*this);
-}
-
-std::string const &Animal::getType(void) const
-{
-    return (this->type);
 }
 
 void Animal::makeSound(void) const

@@ -44,6 +44,13 @@ void further_tests_if_your_hard_headed(void)
     delete copydog;
 }
 
+// void testnot(void)
+// {
+//     Animal *bird = new Animal();
+//     bird->makeSound();
+//     delete bird;
+// }
+
 int main()
 {
     std::cout << "Animal farm with no brains " << std::endl;
@@ -71,6 +78,9 @@ int main()
 
     // further tests
     // further_tests_if_your_hard_headed();
+
+    // this test below should not compile
+    // testnot();
 
     return 0;
 }

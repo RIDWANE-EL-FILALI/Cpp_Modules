@@ -1,7 +1,7 @@
-NAME	= ex00
+NAME	= ex02
 CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
-SRC		= main.cpp Dog.cpp Cat.cpp Animal.cpp WrongCat.cpp WrongAnimal.cpp
+SRC		= main.cpp Dog.cpp Cat.cpp Animal.cpp Brain.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 %.o : %.cpp
@@ -9,7 +9,7 @@ OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) Cat.hpp Dog.hpp Animal.hpp WrongCat.hpp WrongAnimal.hpp
+$(NAME): $(OBJ) Cat.hpp Dog.hpp Animal.hpp Brain.hpp
 	@$(CC) $(CFLAGS) $(OBJ) -o $@
 
 clean:

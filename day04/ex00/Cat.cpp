@@ -1,12 +1,12 @@
 #include "Cat.hpp"
 
-Cat::Cat(void) : Animal(), brain(new Brain())
+Cat::Cat(void) : Animal()
 {
     std::cout << "Default contructor for class Cat called" << std::endl;
     this->type = "Cat";
     return ;
 }
-Cat::Cat(Cat const &src) : Animal(), brain(NULL)
+Cat::Cat(Cat const &src) : Animal()
 {
     std::cout << "Copy constructor for class Cat called" << std::endl;
     *this = src;
@@ -15,27 +15,15 @@ Cat::Cat(Cat const &src) : Animal(), brain(NULL)
 Cat::~Cat(void)
 {
     std::cout << "Cat destructor called" << std::endl;
-    delete this->brain;
     return ;
 }
 Cat &Cat::operator=(Cat const &src)
 {
     std::cout << "Cat coppy assignment operator called" << std::endl;
     if (this != &src)
-    {
         this->type = src.type;
-        if (this->brain != NULL)
-            delete (this->brain);
-        this->brain = new Brain(*src.brain);
-    }
     return (*this);
 }
-
-Brain *Cat::getBrain(void) const
-{
-    return (this->brain);
-}
-
 void Cat::makeSound(void) const
 {
     std::cout << this->type << " : Meowwwww" << std::endl;
