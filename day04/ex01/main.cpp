@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rel-fila <rel-fila@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/08 18:13:04 by rel-fila          #+#    #+#             */
+/*   Updated: 2023/10/08 18:38:44 by rel-fila         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
@@ -7,11 +19,11 @@ void further_tests_if_your_hard_headed(void)
 {
     Dog *pitbull = new Dog();
     Cat *lisley = new Cat();
+    std::cout << "\033[42mnormal assignning ideas to objects\033[0m" << std::endl;
     pitbull->getBrain()->setIdea(0, "bite, bite, bite");
     pitbull->getBrain()->setIdea(1, "bark, bark, bark");
     lisley->getBrain()->setIdea(0, "pete me Human !");
     lisley->getBrain()->setIdea(1, "meow, meow, meow");
-    std::cout << "\033[42mnormal assignning ideas to objects\033[0m" << std::endl;
     std::cout << "\033[33mpitbull idea : \033[0m" << pitbull->getBrain()->getIdea(0) << std::endl;
     std::cout << "\033[33mlisley idea : \033[0m" << lisley->getBrain()->getIdea(0) << std::endl;
     std::cout << "\033[33mpitbull idea : \033[0m" << pitbull->getBrain()->getIdea(1) << std::endl;
@@ -54,13 +66,13 @@ int main()
     {
         animalfarm[i] = new Cat();
     }
-    for(int i = 4; i< 8; i++)
+    for(int i = 4;i < 8; i++)
     {
         animalfarm[i] = new Dog();
     }
     std::cout << "The horde is making soo much noise" << std::endl;
     std::cout << "\033[33m";
-    for(int i = 0; i<8; i++)
+    for(int i = 0; i < 8; i++)
     {
         animalfarm[i]->makeSound();
     }
@@ -70,7 +82,7 @@ int main()
         delete animalfarm[i];
 
     // further tests
-    // further_tests_if_your_hard_headed();
+    //further_tests_if_your_hard_headed();
 
     return 0;
 }

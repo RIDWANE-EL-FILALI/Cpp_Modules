@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rel-fila <rel-fila@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/08 19:06:03 by rel-fila          #+#    #+#             */
+/*   Updated: 2023/10/08 19:06:05 by rel-fila         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Character.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
@@ -54,6 +66,9 @@ int main()
     me.use(3, *tmp);
     me.displayInventory();
 
+    delete one;
+    delete three;
     delete tmp;
+    delete five;
     return (0);
 }
