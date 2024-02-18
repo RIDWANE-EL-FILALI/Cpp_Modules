@@ -8,22 +8,17 @@ Form::Form(Form const &src) : name(src.name), sign(false), sign_grade(src.sign_g
     std::cout << "Form copy constructor called" << std::endl;
 }
 
-Form::Form(const std::string &name, int const sign_grade, int const executing_grade) : name(name), sign(false) {
+Form::Form(const std::string &name, int const sign_grade, int const executing_grade) : name(name), sign(false) , sign_grade(sign_grade), executing_grade(executing_grade){
     std::cout << "Form constructor with arguments called" << std::endl;
-    if (sign_grade >= 20 || executing_grade >= 5)
-        throw(Form::GradeTooLowException());
-    else if (sign_grade < 1 || executing_grade < 1)
+    if (sign_grade < Bureaucrat::highestGrade || executing_grade < Bureaucrat::highestGrade)
         throw(Form::GradeTooHighException());
-    else
-    {
-        this->executing_grade = executing_grade;
-        this->sign_grade = sign_grade;
-    }
+    else if (sign_grade > Bureaucrat::lowestGrade || executing_grade > Bureaucrat::lowestGrade)
+        throw(Form::GradeTooLowException());
 }
 
 Form &Form::operator=(Form const &src) {
     std::cout << "Form copy assignment operator called" << std::endl;
-    this->sign = sign;
+    this->sign = src.sign;
     return (*this);
 }
 
@@ -55,19 +50,19 @@ void Form::beSigned(Bureaucrat &Bureaucrat) {
     this->sign = true;
 }
 
-const char *Form::AlreadySignedException::what(void) throw() {
+const char *Form::AlreadySignedException::what(void) const throw() {
     return ("Sorry The form is already signed");
 }
 
-const char *Form::GradeTooHighException::what(void) throw() {
+const char *Form::GradeTooHighException::what(void) const throw() {
     return ("Your grade is too high for the form");
 }
 
-const char *Form::GradeTooLowException::what(void) throw() {
+const char *Form::GradeTooLowException::what(void) const throw() {
     return ("Your grade is too low for the form");
 }
 
 std::ostream & operator<<(std::ostream & os, Form & obj) {
-    os << MAGENTA "Form {" << obj.getName() << "} with the sign of (" << (obj.getSign() ? "Signed" : "Unsigned") << ")" << "and the required grade to sign is " << obj.getSignGrade() << " and to execute it " << obj.getExecutingGrade() << RESET;
+    os << MAGENTA "Form {" << obj.getName() << "} with the sign of (" << (obj.getSign() ? "Signed" : "Unsigned") << ")" << " and the required grade to sign it is " << obj.getSignGrade() << " and to execute it " << obj.getExecutingGrade() << RESET;
     return (os);
 }

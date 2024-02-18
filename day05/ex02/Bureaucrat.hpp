@@ -2,7 +2,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 #define RESET         "\033[0m"
 #define BLACK          "\033[30m"
 #define RED            "\033[31m"
@@ -35,7 +35,8 @@ class Bureaucrat {
         //increment and decrement grade
         void incrementGrade(void);
         void decrementGrade(void);
-        void signForm(Form & form);
+        void signForm(AForm & form);
+        void executeForm(AForm & form);
         static int const	highestGrade = 1;
 		static int const	lowestGrade = 150;
 
