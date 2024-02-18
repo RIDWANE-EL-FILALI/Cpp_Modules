@@ -12,9 +12,7 @@ class ShrubberyCreationForm : public AForm
 		~ShrubberyCreationForm(void);
 
 		ShrubberyCreationForm &	operator=(ShrubberyCreationForm const & src);
-
 		std::string const &	getTarget(void) const;
-
 		void	beExecuted(void) const;
 
 		static int const	gradeToSign = 145;
