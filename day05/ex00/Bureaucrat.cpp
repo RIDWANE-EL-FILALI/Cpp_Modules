@@ -57,11 +57,11 @@ void Bureaucrat::decrementGrade(void) {
     }
 }
 
-const char *Bureaucrat::GradeTooHighException::what(void) throw() {
+const char *Bureaucrat::GradeTooHighException::what(void) const throw() {
     return ("you just reached the heighest grade ever recorded");
 }
 
-const char *Bureaucrat::GradeTooLowException::what(void) throw() {
+const char *Bureaucrat::GradeTooLowException::what(void) const throw() {
     return ("you just reached the lowest grade ever recorded");
 }
 

@@ -26,7 +26,7 @@ AForm::~AForm(void) {
     std::cout << "AForm default destructor called" << std::endl;
 }
 
-std::string const &AForm::getName(void) {
+std::string const &AForm::getName(void) const{
     return (this->name);
 }
 
@@ -50,7 +50,7 @@ void AForm::beSigned(Bureaucrat &Bureaucrat) {
     this->sign = true;
 }
 
-void	AForm::execute(Bureaucrat &bureaucrat)
+void	AForm::execute(Bureaucrat const &bureaucrat) const
 {
 	if (this->sign == false)
 		throw (AForm::NotSignedException());

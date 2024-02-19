@@ -7,12 +7,12 @@ OBJ		= $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) Bureaucrat.hpp Form.hpp
-	@$(CC) $(CFLAGS) $(OBJ) -o $@
+	$(CC) $(CFLAGS) $(OBJ) -o $@
 
 clean:
-	@${RM} ${OBJ} ${NAME}
+	${RM} ${OBJ} ${NAME}
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all

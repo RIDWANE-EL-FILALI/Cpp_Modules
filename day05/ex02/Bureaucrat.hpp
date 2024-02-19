@@ -31,12 +31,12 @@ class Bureaucrat {
 
         //setters and getters
         std::string const &getName(void);
-        int getGrade(void);
+        const int getGrade(void) const;
         //increment and decrement grade
         void incrementGrade(void);
         void decrementGrade(void);
         void signForm(AForm & form);
-        void executeForm(AForm & form);
+        void executeForm(AForm const &form);
         static int const	highestGrade = 1;
 		static int const	lowestGrade = 150;
 

@@ -33,7 +33,7 @@ std::string const &Bureaucrat::getName(void) {
     return (this->name);
 }
 
-int Bureaucrat::getGrade(void) {
+const int Bureaucrat::getGrade(void) const{
     return (this->grade);
 }
 
@@ -85,7 +85,7 @@ void	Bureaucrat::signForm(AForm & form)
 	}
 }
 
-void	Bureaucrat::executeForm(AForm & form)
+void	Bureaucrat::executeForm(AForm const &form)
 {
 	try
 	{

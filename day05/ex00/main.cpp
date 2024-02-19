@@ -22,17 +22,14 @@ int main()
         five.incrementGrade();
         std::cout << five << std::endl;
         // cases were the exception will be caught
-        // three.decrementGrade();
+        three.decrementGrade();
         // four.incrementGrade();
         // Bureaucrat six("William", 151);
         // Bureaucrat seven("William", -4);
 
-    } catch(Bureaucrat::GradeTooHighException &e)
+    } catch(std::exception const & e)
     {
-        std::cout << RED <<  e.what() << RESET << std::endl;
-    } catch(Bureaucrat::GradeTooLowException &e)
-    {
-        std::cout << RED <<  e.what() << RESET << std::endl;
+        std::cout << RED << "Exception : " <<  e.what() << RESET << std::endl;
     }
     return (0);
 }

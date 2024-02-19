@@ -12,12 +12,12 @@ class AForm {
         AForm(const std::string &name, int const sign_grade, int const executing_grade);
         AForm &operator=(AForm const &src);
         ~AForm(void);
-        std::string const &getName(void);
+        std::string const &getName(void) const;
         bool getSign(void);
         int getSignGrade(void);
         int getExecutingGrade(void);
         void beSigned(Bureaucrat &Bureaucrat);
-        void execute(Bureaucrat &bureaucrat); 
+        void execute(Bureaucrat const &bureaucrat) const; 
         class GradeTooHighException : public std::exception {
             public:
                 virtual const char *what(void) const throw();
