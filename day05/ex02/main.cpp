@@ -1,41 +1,36 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
     std::cout << GREEN << "initiating the tests for every bureaucrat and Form" << RESET << std::endl;
     try
     {
-        // Bureaucrat non("non", -1);
-        // Form non("non", 160, -10);
-        Form one("one", 12, 4);
+        Bureaucrat one("john", 15);
+        Bureaucrat two("david", 50);
+        Bureaucrat three("dwayn", 140);
         std::cout << one << std::endl;
-        Bureaucrat zero("Liam", 10);
-        std::cout << zero << std::endl;
-        zero.signForm(one);
-        // zero.signForm(one);
-        // one.beSigned(zero);
-        std::cout << one << std::endl;
-        // Bureaucrat one("Noah", 150);
-        // std::cout << one << std::endl;
-        // Bureaucrat two("Oliver", 4);
-        // std::cout << two << std::endl;
-        // Bureaucrat three("James", 150);
-        // std::cout << three << std::endl;
-        // Bureaucrat four("Elijah", 1);
-        // std::cout << four << std::endl;
-        // Bureaucrat five;
-        // std::cout << five << std::endl;
-        // five.decrementGrade();
-        // std::cout << five << std::endl;
-        // five.incrementGrade();
-        // std::cout << five << std::endl;
-        // cases were the exception will be caught
-        // three.decrementGrade();
-        // four.incrementGrade();
-        // Bureaucrat six("William", 151);
-        // Bureaucrat seven("William", -4);
-
+        std::cout << two << std::endl;
+        std::cout << three << std::endl;
+        ShrubberyCreationForm shrubbery("forest");
+        RobotomyRequestForm Robot("mr robot");
+        PresidentialPardonForm Pardon("Pardon");
+        // three.signForm(Robot);
+        three.executeForm(Robot);
+        // Robot.beSigned(three);
+        one.signForm(Robot);
+        Robot.execute(one);
+        // Robot.beSigned(one);
+        // Robot.beExecuted();
+        // one.signForm(shrubbery);
+        // one.executeForm(shrubbery);
+        
+        std::cout << shrubbery << std::endl;
+        std::cout << Robot << std::endl;
+        std::cout << Pardon << std::endl;
     } catch(std::exception const & e)
     {
         std::cout << RED << "Exception : " <<  e.what() << RESET << std::endl;
