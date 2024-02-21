@@ -12,12 +12,13 @@
 #define WHITE          "\033[37m"
 #include <iostream>
 #include <cstring>
+#include <climits>
+#include <cmath>
 
 class ScalarConverter {
     public:
         ~ScalarConverter();
-        static void convert(const std::string &literal);
-
+        static void convert(const std::string input);
 
     private:
         ScalarConverter();

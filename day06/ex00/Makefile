@@ -10,7 +10,7 @@ $(NAME): $(OBJ) Converter.hpp
 	$(CC) $(CFLAGS) $(OBJ) -o $@
 
 clean:
-	${RM} ${OBJ} ${NAME}
+	${RM} ${OBJ}
 
 fclean: clean
 	rm -f $(NAME)
