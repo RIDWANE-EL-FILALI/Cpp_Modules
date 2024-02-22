@@ -33,8 +33,16 @@ void	printDouble(double d)
 		std::cout << "int:	impossible" << std::endl;
 	else
 		std::cout << "int:	" << static_cast<int>(d) << std::endl;
-	std::cout << "float:	" << static_cast<float>(d) << 'f' << std::endl;
-	std::cout << "double:	" << d << std::endl;
+	if (d - static_cast<int>(d) == 0)
+	{
+		std::cout << "float:	" << static_cast<float>(d) << ".0f" << std::endl;
+		std::cout << "double:	" << d << ".0" <<  std::endl;
+	}
+	else
+	{
+		std::cout << "float:	" << static_cast<float>(d) << 'f' << std::endl;
+		std::cout << "double:	" << d << std::endl;
+	}
 }
 
 void	printFloat(float f)
@@ -50,8 +58,16 @@ void	printFloat(float f)
 		std::cout << "int:	impossible" << std::endl;
 	else
 		std::cout << "int:	" << static_cast<int>(f) << std::endl;
-	std::cout << "float:	" << f << 'f' << std::endl;
-	std::cout << "double:	" << static_cast<double>(f) << std::endl;
+	if (f - static_cast<int>(f) == 0)
+	{
+		std::cout << "float:	" << f << ".0f" << std::endl;
+		std::cout << "double:	" << static_cast<double>(f) << ".0" <<  std::endl;
+	}
+	else
+	{
+		std::cout << "float:	" << f << 'f' << std::endl;
+		std::cout << "double:	" << static_cast<double>(f) << std::endl;
+	}
 }
 
 void	printInt(long i)
@@ -67,8 +83,8 @@ void	printInt(long i)
 		std::cout << "int:	impossible" << std::endl;
 	else
 		std::cout << "int:	" << i << std::endl;
-	std::cout << "float:	" << static_cast<float>(i) << 'f' << std::endl;
-	std::cout << "double:	" << static_cast<double>(i) << std::endl;
+	std::cout << "float:	" << static_cast<float>(i) << ".0f" << std::endl;
+	std::cout << "double:	" << static_cast<double>(i) << ".0" << std::endl;
 }
 
 void	printChar(char c)
@@ -78,8 +94,8 @@ void	printChar(char c)
 	else
 		std::cout << "char:	Non displayable" << std::endl;
 	std::cout << "int:	" << static_cast<int>(c) << std::endl;
-	std::cout << "float:	" << static_cast<float>(c) << 'f' << std::endl;
-	std::cout << "double:	" << static_cast<double>(c) << std::endl;
+	std::cout << "float:	" << static_cast<float>(c) << ".0f" << std::endl;
+	std::cout << "double:	" << static_cast<double>(c) << ".0" << std::endl;
 }
 
 std::string	getType(const std::string input)
@@ -91,7 +107,7 @@ std::string	getType(const std::string input)
 	else
 	{
 		char* endptr = NULL;
-		std::strtol(input.c_str(), &endptr, 0);
+		std::strtol(input.c_str(), &endptr, 10);
 		if (*endptr == '\0') {
 			return "int";
 		}
