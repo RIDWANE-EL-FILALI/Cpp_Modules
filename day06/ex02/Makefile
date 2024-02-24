@@ -1,12 +1,12 @@
-NAME	= Serializer
+NAME	= ex02
 CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
-SRC		= Serializer.cpp main.cpp
+SRC		= Base.cpp main.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) Serializer.hpp
+$(NAME): $(OBJ) A.hpp B.hpp C.hpp Base.hpp
 	$(CC) $(CFLAGS) $(OBJ) -o $@
 
 clean:

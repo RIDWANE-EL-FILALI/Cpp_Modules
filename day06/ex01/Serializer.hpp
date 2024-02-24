@@ -1,7 +1,6 @@
 #ifndef SERIALIZER_HPP
 #define SERIALIZER_HPP
 
-
 #define RESET         "\033[0m"
 #define BLACK          "\033[30m"
 #define RED            "\033[31m"
@@ -14,11 +13,11 @@
 #include <iostream>
 #include <cstdint>
 
-struct Data
+typedef struct non
 {
 	unsigned int	value;
 	std::string		string;
-};
+} Data;
 
 class Serializer {
     private:
@@ -28,10 +27,9 @@ class Serializer {
 
     public:
         ~Serializer();
-        uintptr_t serialize(Data* ptr);
-        Data* deserialize(uintptr_t raw);
-
-}
+        static uintptr_t serialize(Data * ptr);
+        static Data* deserialize(uintptr_t raw);
+};
 
 
 #endif
