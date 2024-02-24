@@ -1,4 +1,4 @@
-NAME    = ex00
+NAME    = ex01
 CC      = c++
 CFLAGS  = -Werror -Wextra -Wall -std=c++98
 SRC     = main.cpp
@@ -9,7 +9,7 @@ all:	$(NAME)
 $(NAME):	$(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $@
 
-%.o: %.cpp whatever.hpp
+%.o: %.cpp iter.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
