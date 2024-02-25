@@ -22,7 +22,7 @@ Fixed::Fixed(float const f)
 {
     std::cout << "Constructor with float as argument called" << std::endl;
     std::cout << roundf(f * (1 << fractionBits)) << std::endl;
-
+    value = roundf(f * (1 << fractionBits));
     return ;
 }
 
@@ -76,10 +76,21 @@ float Fixed::toFloat(void) const
     return (float(value) / float(1 << fractionBits));
 }
 
-std::ostream& operator<<(std::ostream& os, const Fixed& number)
+std::ostream& operator<<(std::ostream& os, const std::string &str)
 {
-    os << number.toFloat();
+    //printf("hello\n");
+    (void)str;
+    int a = 20;
+    os << a;
     return (os);
+}
+
+std::string &operator+(std::string str1, std::string str2)
+{
+    std::string &return_value = str2;
+    (void)str1;
+    printf("fuck it");
+    return (str2);
 }
 
 

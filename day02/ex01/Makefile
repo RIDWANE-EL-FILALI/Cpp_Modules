@@ -1,6 +1,6 @@
 NAME	= ex01
 CC		= c++
-CFLAGS	= -Werror -Wextra -Wall -std=c++98
+CFLAGS	= 
 
 SRC		= Fixed.cpp main.cpp
 OBJ		= $(SRC:.cpp=.o)

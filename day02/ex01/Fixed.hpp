@@ -23,7 +23,7 @@ class Fixed {
         int toInt(void)const;
 };
 
-std::ostream& operator<<(std::ostream& os, const Fixed& number);
-
+std::ostream& operator<<(std::ostream& os, const std::string &str);
+std::string &operator+(std::string str1, std::string str2);
 #endif
 
