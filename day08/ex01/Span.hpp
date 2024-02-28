@@ -69,6 +69,8 @@ class span {
         void addNumber(int number);
         int shortestSpan() const;
         int longestSpan() const;
+        template <typename InputIt>
+        void addNumbers(InputIt first, InputIt last);
     private:
         unsigned int maxsize;
         std::vector<int> numbers;

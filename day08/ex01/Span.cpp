@@ -44,8 +44,20 @@ int span::shortestSpan() const {
     }
     return minspan;
 }
+
 int span::longestSpan() const {
     if (numbers.size() < 2)
         throw std::runtime_error("Cannot find span. Less than two numbers stored.");
     return (*std::max_element(numbers.begin(), numbers.end()) - *std::min_element(numbers.begin(), numbers.end()));
+}
+
+template <typename InputIt>
+void addNumbers(InputIt first, InputIt last) {
+    while (first != last && numbers.size() < maxSize) {
+        numbers.push_back(*first);
+        ++first;
+    }
+    if (numbers.size() >= maxSize) {
+        throw std::runtime_error("Span is full. Cannot add more numbers.");
+    }
 }
