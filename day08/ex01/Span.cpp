@@ -5,7 +5,7 @@ span::span(void) : maxsize(0), numbers()
 {
     std::cout << "Default constructor called" << std::endl;
 }
-span::span(unsigned int N) : maxsize(N) {
+span::span(unsigned int N) : maxsize(N), numbers() {
     std::cout << "Default constructor with arguments called" << std::endl;
 }
 span::span(span const &src) : maxsize(src.maxsize), numbers(src.numbers) {
@@ -58,14 +58,3 @@ int span::longestSpan() const {
         throw std::runtime_error("Cannot find span. Less than two numbers stored.");
     return (*std::max_element(numbers.begin(), numbers.end()) - *std::min_element(numbers.begin(), numbers.end()));
 }
-
-// template <typename InputIt>
-// void span::fill_in(InputIt first, InputIt last) {
-//     while (first != last && numbers.size() < maxsize) {
-//         numbers.push_back(*first);
-//         ++first;
-//     }
-//     if (numbers.size() >= maxsize) {
-//         throw std::runtime_error("Span is full. Cannot add more numbers.");
-//     }
-// }
