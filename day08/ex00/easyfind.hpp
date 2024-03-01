@@ -56,6 +56,8 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <string>
+#include <algorithm>
 
 template <typename T>
 typename T::iterator easyfind(T &container, int value)

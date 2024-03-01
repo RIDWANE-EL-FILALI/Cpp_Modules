@@ -55,7 +55,8 @@
 #define BOLD_WHITE_ON_BLACK     "\033[1;37;40m"
 #include <iostream>
 #include <vector>
-#include <algorithm> 
+#include <algorithm>
+#include <limits>
 
 
 class span {
@@ -70,7 +71,18 @@ class span {
         int shortestSpan() const;
         int longestSpan() const;
         template <typename InputIt>
-        void addNumbers(InputIt first, InputIt last);
+        void fill_in(InputIt first, InputIt last) 
+        {
+            while (first != last && numbers.size() < maxsize) 
+            {
+                numbers.push_back(*first);
+                ++first;
+            }
+            if (numbers.size() >= maxsize) 
+            {
+                throw std::runtime_error("Span is full. Cannot add more numbers.");
+            }
+        }
     private:
         unsigned int maxsize;
         std::vector<int> numbers;

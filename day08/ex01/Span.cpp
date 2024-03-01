@@ -1,4 +1,5 @@
 #include "Span.hpp"
+#include <cstdio>
 
 span::span(void) : maxsize(0), numbers()
 {
@@ -18,14 +19,16 @@ span &span::operator=(span const &src) {
     if (this != &src)
     {
         this->maxsize = src.maxsize;
-        this->numbers = src.numbers;
+        this->numbers.clear();
+		this->numbers.insert(this->numbers.end(),
+			src.numbers.begin(), src.numbers.end());
     }
     return (*this);
 }
 
 void span::addNumber(int number) {
     if (numbers.size() >= maxsize)
-        throw std::out_of_range("cannot find the span asked for because it's out of range");
+        throw std::out_of_range("you're out of the max range !!!!!");
     numbers.push_back(number);
 }
 
@@ -35,6 +38,11 @@ int span::shortestSpan() const {
     
     std::vector<int> sortedNumber = numbers;
     std::sort(sortedNumber.begin(), sortedNumber.end());
+    // for (std::vector<int>::iterator i =sortedNumber.begin() ; i != sortedNumber.end(); i++)
+    // {
+    //     std::cout << "[" << *i << "] ";
+    // }
+    // std::cout << std::endl;
 
     int minspan = std::numeric_limits<int>::max();
     for(size_t i = 1;i < sortedNumber.size(); ++i)
@@ -51,13 +59,13 @@ int span::longestSpan() const {
     return (*std::max_element(numbers.begin(), numbers.end()) - *std::min_element(numbers.begin(), numbers.end()));
 }
 
-template <typename InputIt>
-void addNumbers(InputIt first, InputIt last) {
-    while (first != last && numbers.size() < maxSize) {
-        numbers.push_back(*first);
-        ++first;
-    }
-    if (numbers.size() >= maxSize) {
-        throw std::runtime_error("Span is full. Cannot add more numbers.");
-    }
-}
+// template <typename InputIt>
+// void span::fill_in(InputIt first, InputIt last) {
+//     while (first != last && numbers.size() < maxsize) {
+//         numbers.push_back(*first);
+//         ++first;
+//     }
+//     if (numbers.size() >= maxsize) {
+//         throw std::runtime_error("Span is full. Cannot add more numbers.");
+//     }
+// }
