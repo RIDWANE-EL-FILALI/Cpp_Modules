@@ -57,6 +57,8 @@
 #include <iostream>
 #include <algorithm>
 #include <stack>
+#include <list>
+
 
 
 template< typename T, class container = std::deque< T > >
