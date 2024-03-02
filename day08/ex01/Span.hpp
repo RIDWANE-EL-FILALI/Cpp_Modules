@@ -71,7 +71,7 @@ class span {
         int shortestSpan() const;
         int longestSpan() const;
         template <typename InputIt>
-        void fill_in(InputIt first, InputIt last) 
+        void fill_in(InputIt first, InputIt last)
         {
             while (first != last && numbers.size() < maxsize) 
             {

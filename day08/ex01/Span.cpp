@@ -38,12 +38,6 @@ int span::shortestSpan() const {
     
     std::vector<int> sortedNumber = numbers;
     std::sort(sortedNumber.begin(), sortedNumber.end());
-    // for (std::vector<int>::iterator i =sortedNumber.begin() ; i != sortedNumber.end(); i++)
-    // {
-    //     std::cout << "[" << *i << "] ";
-    // }
-    // std::cout << std::endl;
-
     int minspan = std::numeric_limits<int>::max();
     for(size_t i = 1;i < sortedNumber.size(); ++i)
     {
