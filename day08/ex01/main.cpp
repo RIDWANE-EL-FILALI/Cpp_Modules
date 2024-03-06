@@ -25,8 +25,8 @@ int main() {
         std::cout << GREEN "The shortest span is : " RESET << test.shortestSpan()  << std::endl;
         std::cout << MAGENTA "**********************" RESET << std::endl;
         std::cout << BOLD_WHITE_ON_BLACK "--> Testing with fill_in method : " RESET<< std::endl;
-        span test2(100);
-        std::vector<int> check(4,100);
+        span test2(4);
+        std::vector<int> check(4,100); 
         test2.fill_in(check.begin(), check.end());
         std::cout << GREEN "The largest span is : " RESET << test2.longestSpan()  << std::endl;
         std::cout << GREEN "The shortest span is : " RESET << test2.shortestSpan()  << std::endl;

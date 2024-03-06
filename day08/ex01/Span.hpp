@@ -73,12 +73,12 @@ class span {
         template <typename InputIt>
         void fill_in(InputIt first, InputIt last)
         {
-            while (first != last && numbers.size() < maxsize) 
+            while (first != last && numbers.size() <= maxsize) 
             {
                 numbers.push_back(*first);
                 ++first;
             }
-            if (numbers.size() >= maxsize) 
+            if (numbers.size() > maxsize) 
             {
                 throw std::runtime_error("Span is full. Cannot add more numbers.");
             }

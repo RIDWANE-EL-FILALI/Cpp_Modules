@@ -9,7 +9,7 @@ int main()
         std::cout << GREEN "let's see the size and capacity of this vectos before extending  :" RESET << std::endl;
         std::cout << "size : " << vec.size() << std::endl;
         std::cout << "capacity : " << vec.capacity() << std::endl;
-        for (int i = 0; i < 15 ; i++)
+        for (int i = 0; i < 17 ; i++)
             vec.push_back(i * 2);
         int searchValue = 4;
 
