@@ -9,18 +9,23 @@ unsigned int ft_stou(const std::string& str)
 	return num;
 }
 
-template <typename T>
-void log_me(T &tmp)
+void log_me(std::vector<unsigned int> &tmp)
 {
-    for (typename T::iterator i = tmp.begin(); i != tmp.end(); i++)
+    for (std::vector<unsigned int>::iterator i = tmp.begin(); i != tmp.end(); i++)
         std::cout << *i << " ";
     std::cout << std::endl;
 }
 
-template <typename T>
-T mergeVecs(T& left, T& right)
+void log_me(std::deque<unsigned int> &tmp)
 {
-    T result;
+    for (std::deque<unsigned int>::iterator i = tmp.begin(); i != tmp.end(); i++)
+        std::cout << *i << " ";
+    std::cout << std::endl;
+}
+
+std::deque<unsigned int> mergeVecs(std::deque<unsigned int>& left, std::deque<unsigned int>& right)
+{
+    std::deque<unsigned int> result;
 
     // Merge the two vectors until one of them becomes empty
     while (!left.empty() && !right.empty())
@@ -51,8 +56,40 @@ T mergeVecs(T& left, T& right)
     return result;
 }
 
-template <typename T>
-static T insertionSortVec(T& vec) {
+std::vector<unsigned int> mergeVecs(std::vector<unsigned int>& left, std::vector<unsigned int>& right)
+{
+    std::vector<unsigned int> result;
+
+    // Merge the two vectors until one of them becomes empty
+    while (!left.empty() && !right.empty())
+	{
+        if (left.front() <= right.front()) 
+		{
+            result.push_back(left.front());
+            left.erase(left.begin());
+        }
+		else
+		{
+            result.push_back(right.front());
+            right.erase(right.begin());
+        }
+    }
+    // Add any remaining elements from the left vector
+    while (!left.empty())
+	{
+        result.push_back(left.front());
+        left.erase(left.begin());
+    }
+    // Add any remaining elements from the right vector
+    while (!right.empty())
+	{
+        result.push_back(right.front());
+        right.erase(right.begin());
+    }
+    return result;
+}
+
+std::deque<unsigned int> insertionSortVec(std::deque<unsigned int>& vec) {
     for (unsigned int i = 1; i < vec.size(); i++) {
         unsigned int key = vec[i];
         int j = i - 1;
@@ -69,8 +106,24 @@ static T insertionSortVec(T& vec) {
     return vec;
 }
 
-template <typename T>
-T mergeInsertVec(T& vec) {
+std::vector<unsigned int> insertionSortVec(std::vector<unsigned int>& vec) {
+    for (unsigned int i = 1; i < vec.size(); i++) {
+        unsigned int key = vec[i];
+        int j = i - 1;
+
+        // Move elements of vec[0..i-1] that are greater than key
+        // to one position ahead of their current position
+        while (j >= 0 && vec[j] > key) {
+            vec[j + 1] = vec[j];
+            j--;
+        }
+
+        vec[j + 1] = key;
+    }
+    return vec;
+}
+
+std::vector<unsigned int> mergeInsertVec(std::vector<unsigned int>& vec) {
     // Base case: a vector with zero or one elements is already sorted
     if (vec.size() <= 1) {
         return vec;
@@ -82,8 +135,31 @@ T mergeInsertVec(T& vec) {
     }
     // Divide the vector into two halves
     int mid = vec.size() / 2;
-    T left(vec.begin(), vec.begin() + mid);
-    T right(vec.begin() + mid, vec.end());
+    std::vector<unsigned int> left(vec.begin(), vec.begin() + mid);
+    std::vector<unsigned int> right(vec.begin() + mid, vec.end());
+
+    // Recursively sort the left and right halves
+    left = mergeInsertVec(left);
+    right = mergeInsertVec(right);
+
+    // Merge the sorted halves
+    return mergeVecs(left, right);
+}
+
+std::deque<unsigned int> mergeInsertVec(std::deque<unsigned int>& vec) {
+    // Base case: a vector with zero or one elements is already sorted
+    if (vec.size() <= 1) {
+        return vec;
+    }
+
+    // If the size of the vector is below the threshold, use insertion sort
+    if (vec.size() <= INSERTION_SORT_THRESHOLD) {
+        return insertionSortVec(vec);
+    }
+    // Divide the vector into two halves
+    int mid = vec.size() / 2;
+    std::deque<unsigned int> left(vec.begin(), vec.begin() + mid);
+    std::deque<unsigned int> right(vec.begin() + mid, vec.end());
 
     // Recursively sort the left and right halves
     left = mergeInsertVec(left);

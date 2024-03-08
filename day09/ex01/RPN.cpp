@@ -28,7 +28,7 @@ int calculateRPN(const std::string& expression) {
             numbers.push(stoi(token));
         } else if (check == 2){
             // If the token is an operator, perform the operation
-            if ((numbers.size() < 2 || numbers.size() > 2)) {
+            if (numbers.size() < 2) {
                 throw std::logic_error("Insufficient operands for operator " + token + " or there is more than two elements in the stack");
             }
             int operand2 = numbers.top();

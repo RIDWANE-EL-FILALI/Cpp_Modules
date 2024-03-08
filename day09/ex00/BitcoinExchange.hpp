@@ -19,9 +19,10 @@
 #define INCORRECT_DATE_ERR "Error : incorrect date => "
 #define INVALID_RATE_ERR "Error : invalid rate"
 #define NOT_A_POSITIVE_ERR "Error : not a positive number"
-#define TOO_LARGE_ERR "Error : too large number." 
-
-
+#define TOO_LARGE_ERR "Error : too large number."
+#define BAD_INPUT_HEADER "Error: the header in the input file does not exist."
+#define OUT_OF_BOUND "The value entered is out of range."
+#define DAY_DOES_NOT_EXIST "DAY does not exist in the calender."
 
 class BitcoinExchange
 {

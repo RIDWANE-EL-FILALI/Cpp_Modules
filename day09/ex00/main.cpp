@@ -24,10 +24,12 @@ int main(int ac, char **av)
     std::string line;
 
     std::getline(input_db, line);
+    if (line != "date | value")
+        return err(BAD_INPUT_HEADER);
     while (std::getline(input_db, line))
     {
         size_t delim = line.find('|');
-        if (delim == std::string::npos || line.length() < delim + 2)
+        if (delim == std::string::npos || line.length() < delim + 2 || line[delim - 1] != ' ' || line[delim + 1] != ' ')
         {
             std::cerr << BAD_INPUT << "\"" << line << "\"" << std::endl;
             continue;
@@ -41,8 +43,13 @@ int main(int ac, char **av)
         if (!btc.checkRate(rate_str))
             continue;
         float rate = ft_stof(rate_str);
+        if (rate < (float)0 || rate > (float)1000)
+        {
+            std::cerr << OUT_OF_BOUND << " \"" << rate << "\"" << std::endl;
+            continue;
+        }
 
-        std::cout << date << " => " << rate << " = " << std::setprecision(2) << rate * btc.getRate(date) << std::endl;
+        std::cout << date << " => " << rate << " = " << rate * btc.getRate(date) << std::endl;
     }
     internal_db.close();
     input_db.close();
